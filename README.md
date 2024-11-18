@@ -8,7 +8,7 @@ Questo repository contiene tutto il materiale necessario per seguire il corso e 
 Il repository è organizzato come segue:
 
 - **Cartelle di lezione**:  
-  Ogni lezione ha una propria cartella (`lessonX_nome_lezione/`) che contiene:
+  Ogni lezione ha una propria cartella (`lezioneX/`) che contiene:
   - Un file `README.md` con le istruzioni e gli obiettivi della lezione.
   - File vuoti o con intestazioni per gli esercizi da completare.
 
@@ -37,7 +37,7 @@ Il fork crea una tua copia personale del repository, dove potrai lavorare libera
    Questo aprirà un ambiente di sviluppo già configurato, direttamente nel browser.
 
 ### Passo 4: Completa gli esercizi
-1. Apri la cartella della lezione corrente (es. `lesson1_introduction`).
+1. Apri la cartella della lezione corrente.
 2. Leggi il file `README.md` nella cartella della lezione per le istruzioni.
 3. Scrivi il tuo codice negli appositi file vuoti o semi-vuoti.
 
@@ -65,6 +65,9 @@ Per ulteriori dettagli e spiegazioni:
 
 - [**Git e GitHub - Mini Tutorial**](GIT_AND_GITHUB_TUTORIAL.md)  
   Un riassunto essenziale dei comandi di Git e GitHub.
+
+- [**Programma del corso**](MASTERPLAN.md)
+  Il programma del corso.
 
 ---
 
