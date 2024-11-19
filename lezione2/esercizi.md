@@ -94,59 +94,7 @@ Scrivere un programma che:
    $$
 4. Calcoli l’**incertezza su $g$** propagando le incertezze su $L$ e $T$ utilizzando la formula:
    $$
-   dg = g \cdot \sqrt{\left(\frac{dL}{L}\right)^2 + \left(2\frac{dT}{T}\right)^2}
-   $$
-5. Salvi i risultati in un nuovo file `processed_data.csv` contenente le colonne:
-   - `L`: lunghezza media del pendolo (m);
-   - `dL`: incertezza associata alla lunghezza (m);
-   - `T`: periodo medio (s);
-   - `dT`: incertezza sul periodo medio (s);
-   - `g`: valore medio dell'accelerazione di gravità ($m/s^2$);
-   - `dg`: incertezza su $g$ ($m/s^2$).
-
-**Esempio di `data.csv`**:  
-```
-L,dL,T,dT
-1.0,0.01,2.02,0.01
-1.0,0.01,2.03,0.01
-1.0,0.01,2.01,0.01
-1.5,0.02,2.46,0.02
-1.5,0.02,2.47,0.02
-1.5,0.02,2.48,0.02
-```
-
-**Esempio di output (`processed_data.csv`)**:  
-```
-L,dL,T,dT,g,dg
-1.0,0.01,2.02,0.01,9.72,0.10
-1.5,0.02,2.47,0.02,9.79,0.13
-```
-
-**Esempio di output in console**:  
-```
-File processed_data.csv creato con i risultati elaborati.
-```
-
----
-
-### 6. Periodo del Pendolo e $g$
-
-In un esperimento di laboratorio si misura il periodo $T$ di un pendolo semplice per diverse lunghezze $L$, ripetendo più volte ogni misura. Ogni misurazione è accompagnata da un’incertezza sperimentale sia sulla lunghezza che sul periodo.
-
-Scrivere un programma che:  
-1. Legga i dati da un file `data.csv` contenente le colonne:
-   - `L`: lunghezza del pendolo (in metri);
-   - `dL`: incertezza associata alla lunghezza (in metri);
-   - `T`: periodo misurato (in secondi);
-   - `dT`: incertezza associata al periodo misurato (in secondi).
-2. Calcoli il **valore medio del periodo** $T$ per ciascuna lunghezza.
-3. Calcoli il valore medio dell'accelerazione di gravità $g$ usando la formula:
-   $$
-   g = \frac{4\pi^2 L}{T^2}
-   $$
-4. Calcoli l’**incertezza su $g$** propagando le incertezze su $L$ e $T$ utilizzando la formula:
-   $$
-   dg = g \cdot \sqrt{\left(\frac{dL}{L}\right)^2 + \left(2\frac{dT}{T}\right)^2}
+   \Delta g = g \left(\frac{\Delta L}{L} + 2\frac{\Delta T}{T}\right)
    $$
 5. Salvi i risultati in un nuovo file `processed_data.csv` contenente le colonne:
    - `L`: lunghezza media del pendolo (m);
