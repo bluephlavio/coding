@@ -1,187 +1,123 @@
-# Lezione 2: Funzioni, Liste e Introduzione a Matplotlib
+# Lezione 2: Modularità, Funzioni e Moduli in Python
 
 ## Obiettivi della lezione
 
-In questa seconda lezione si affrontano temi cruciali per la scrittura di programmi più modulari e strutturati. Verranno introdotti i concetti di **funzione**, **lista** e **dizionari**, per poi esplorare la visualizzazione dei dati con **Matplotlib**.
-
-Gli obiettivi principali della lezione includono:
-- Comprendere l'importanza delle **funzioni** per scrivere codice modulare e riutilizzabile.
-- Gestire e manipolare **liste** per rappresentare e analizzare collezioni di dati.
-- Introdurre i **dizionari** per associare chiavi a valori.
-- Creare grafici semplici utilizzando la libreria **Matplotlib**.
+La **modularità** è un principio chiave per scrivere codice leggibile, riutilizzabile e manutenibile. In questa lezione approfondiremo:
+- Le **funzioni**, per suddividere il codice in blocchi logici e riutilizzabili.
+- Le **classi**, per strutturare dati e comportamento.
+- L'uso di **moduli** e **pacchetti**, con un'introduzione alla gestione dei pacchetti tramite **pip**.
 
 ---
 
-## 1. Funzioni
-
-Le **funzioni** permettono di raggruppare un insieme di istruzioni che possono essere eseguite più volte. Sono uno strumento fondamentale per la modularità e la leggibilità del codice.
+## 1. Funzioni e Modularità
 
 ### Definizione di una funzione
 
-In Python, una funzione si definisce con la parola chiave `def`:
+Le **funzioni** permettono di isolare logiche specifiche e facilitare il riutilizzo:
 
 ```python
-def greet(name):
-    print(f"Ciao, {name}!")
+from math import pi
+
+def calculate_circle_area(radius):
+    return pi * radius**2
+
+area = calculate_circle_area(5)
+print(f"L'area del cerchio è {area}")
 ```
 
-### Utilizzo delle funzioni
-
-Per utilizzare una funzione, basta chiamarla specificando gli argomenti necessari:
+### Funzioni avanzate: argomenti opzionali e valore di default
 
 ```python
-greet("Alice")  # Output: Ciao, Alice!
-```
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
 
-### Funzioni con valore di ritorno
-
-Una funzione può anche restituire un valore usando la parola chiave `return`:
-
-```python
-def add(a, b):
-    return a + b
-
-result = add(5, 3)
-print(result)  # Output: 8
+print(greet("Alice"))  # Output: Hello, Alice!
+print(greet("Bob", "Hi"))  # Output: Hi, Bob!
 ```
 
 ---
 
-## 2. Liste
+## 2. Classi: Organizzazione del codice con OOP
 
-Le **liste** sono strutture di dati fondamentali in Python, utili per memorizzare e manipolare collezioni ordinate di elementi.
-
-### Creazione di una lista
-
-Le liste si definiscono con le parentesi quadre `[]`:
+Le **classi** consentono di combinare dati e comportamenti:
 
 ```python
-numbers = [1, 2, 3, 4, 5]
-```
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
 
-### Operazioni comuni sulle liste
+    def area(self):
+        return self.width * self.height
 
-- **Accesso agli elementi**:
-  ```python
-  print(numbers[0])  # Output: 1
-  ```
-
-- **Modifica degli elementi**:
-  ```python
-  numbers[2] = 10
-  print(numbers)  # Output: [1, 2, 10, 4, 5]
-  ```
-
-- **Aggiungere elementi**:
-  ```python
-  numbers.append(6)
-  ```
-
-- **Rimuovere elementi**:
-  ```python
-  numbers.remove(10)
-  ```
-
-### Iterazione su una lista
-
-È possibile scorrere gli elementi di una lista con un ciclo `for`:
-
-```python
-for num in numbers:
-    print(num)
+rect = Rectangle(5, 10)
+print(f"Rectangle area: {rect.area()}")
 ```
 
 ---
 
-## 3. Dizionari
+## 3. Moduli e Pacchetti
 
-I **dizionari** sono strutture di dati che associano **chiavi** a **valori**.
+### Moduli locali
 
-### Creazione di un dizionario
+Un **modulo** è un file Python (`.py`) che contiene funzioni e classi che possono essere importate in altri file.
 
-I dizionari si definiscono con le parentesi graffe `{}`:
+**Esempio:**  
+File `my_module.py`:
 
 ```python
-student = {
-    "name": "Alice",
-    "age": 17,
-    "class": "4A"
-}
+def say_hello():
+    print("Hello from my_module!")
 ```
 
-### Accesso e modifica
+File principale:
 
-- **Accesso ai valori** tramite le chiavi:
-  ```python
-  print(student["name"])  # Output: Alice
-  ```
+```python
+import my_module
 
-- **Modifica di un valore**:
-  ```python
-  student["age"] = 18
-  ```
+my_module.say_hello()
+```
 
----
+### Moduli della libreria standard
 
-## 4. Introduzione a Matplotlib
+Python include una **libreria standard** ricca di moduli utili. Esempi:
+- **`math`**: funzioni matematiche avanzate.
+- **`random`**: generazione di numeri casuali.
+- **`os`**: interazione con il sistema operativo.
 
-La libreria **Matplotlib** permette di creare grafici in modo semplice e intuitivo. È uno strumento essenziale per la visualizzazione dei dati.
+**Esempio con `math`:**
 
-### Creazione di un grafico semplice
+```python
+import math
 
-Prima di iniziare, assicurarsi che la libreria sia installata. Se non lo è, utilizzare il comando:
+print(math.sqrt(16))  # Output: 4.0
+```
+
+### Pacchetti di terze parti e gestione con `pip`
+
+**pip** è il gestore ufficiale dei pacchetti Python, usato per installare librerie esterne.
+
+Per installare un pacchetto come **pandas**:
+
 ```bash
-pip install matplotlib
+pip install pandas
 ```
 
-Ecco un esempio di utilizzo:
+**Esempio con `pandas`:**
 
 ```python
-import matplotlib.pyplot as plt
-
-# Dati da visualizzare
-x = [1, 2, 3, 4, 5]
-y = [1, 4, 9, 16, 25]
-
-# Creazione del grafico
-plt.plot(x, y)
-
-# Aggiunta di titolo e etichette
-plt.title("Grafico di una funzione quadratica")
-plt.xlabel("Asse X")
-plt.ylabel("Asse Y")
-
-# Mostrare il grafico
-plt.show()
-```
-
-### Creazione di un istogramma
-
-Gli istogrammi sono utili per visualizzare distribuzioni di dati:
-
-```python
-import matplotlib.pyplot as plt
-
-# Dati per l'istogramma
-data = [1, 2, 2, 3, 3, 3, 4, 4, 5]
-
-# Creazione dell'istogramma
-plt.hist(data, bins=5, edgecolor="black")
-
-# Aggiunta di titolo
-plt.title("Istogramma dei dati")
-
-# Mostrare l'istogramma
-plt.show()
+import pandas as pd
+df = pd.read_csv('data.csv')
+print(df.head())
 ```
 
 ---
 
 ## Conclusioni
 
-In questa lezione sono stati introdotti concetti chiave per la programmazione in Python:
-- **Funzioni**, per modularizzare e riutilizzare il codice.
-- **Liste** e **dizionari**, per la gestione di collezioni di dati.
-- **Matplotlib**, per la visualizzazione grafica dei dati.
+Abbiamo introdotto:
+- L'importanza della **modularità** con funzioni e classi.
+- L'uso di **moduli locali**, della **libreria standard** e di **pacchetti di terze parti**.
+- La gestione dei pacchetti con **pip**.
 
-Nella prossima lezione, si approfondirà l’utilizzo di **Jupyter Notebook** e si inizieranno a esplorare simulazioni più avanzate come il **Random Walk**.
+Questi strumenti sono essenziali per scrivere codice scalabile e manutenibile.
