@@ -1,37 +1,43 @@
 import random
 
-def guess_number_game():
-    # Genera un numero casuale tra 1 e 100
-    secret_number = random.randint(1, 100)
-    attempts = 0  # Conta il numero di tentativi
+class GuessNumberGame:
+    # Inizializza il numero segreto e il contatore dei tentativi
+    def __init__(self):
+        self.secret_number = random.randint(1, 100)
+        self.attempts = 0
 
-    print("Ho scelto un numero tra 1 e 100. Prova a indovinarlo!")
-    
-    while True:
-        # Chiede all'utente di inserire un numero
-        guess = int(input("Inserisci il tuo numero: "))
-        attempts += 1
+    # Metodo principale per giocare
+    def play(self):
+        print("Ho scelto un numero tra 1 e 100. Prova a indovinarlo!")
         
-        # Fornisce suggerimenti all'utente
-        if guess < secret_number:
-            print("Troppo basso!")
-        elif guess > secret_number:
-            print("Troppo alto!")
-        else:
-            # L'utente ha indovinato il numero
-            print(f"Hai indovinato! Il numero era {secret_number}.")
-            break
+        while True:
+            try:
+                guess = int(input("Inserisci il tuo numero: "))
+                self.attempts += 1
+                if guess < self.secret_number:
+                    print("Troppo basso!")
+                elif guess > self.secret_number:
+                    print("Troppo alto!")
+                else:
+                    print(f"Hai indovinato! Il numero era {self.secret_number}.")
+                    break
+            except ValueError:
+                print("Per favore, inserisci un numero valido.")
+        
+        self.display_luck_index()
 
-    # Calcola un indice di fortuna basato sul numero di tentativi
-    if attempts <= 5:
-        luck_index = "Molto Fortunato!"
-    elif attempts <= 10:
-        luck_index = "Fortunato!"
-    else:
-        luck_index = "Sfortunato!"
-    
-    print(f"Indice di fortuna: {attempts} tentativi ({luck_index})")
+    # Metodo per calcolare e visualizzare l'indice di fortuna
+    def display_luck_index(self):
+        if self.attempts <= 5:
+            luck_index = "Molto Fortunato!"
+        elif self.attempts <= 10:
+            luck_index = "Fortunato!"
+        else:
+            luck_index = "Sfortunato!"
+        
+        print(f"Indice di fortuna: {self.attempts} tentativi ({luck_index})")
 
 if __name__ == "__main__":
-    # Avvia il gioco
-    guess_number_game()
+    # Crea un'istanza della classe e avvia il gioco
+    game = GuessNumberGame()
+    game.play()
