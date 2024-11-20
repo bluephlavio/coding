@@ -1,68 +1,48 @@
-# Esercizi: Visualizzazione Dati e Creative Coding
+# Esercizi: Analisi e Visualizzazione Dati con numpy, pandas e matplotlib
 
-Gli esercizi seguono un ordine di difficoltà crescente e sono in linea con i concetti di visualizzazione dei dati e programmazione grafica. Si utilizzano **matplotlib** e **py5** per approfondire la visualizzazione e la grafica interattiva.
+Gli esercizi seguono un ordine di difficoltà crescente e sono in linea con i concetti introdotti nella lezione: utilizzo di **numpy**, **pandas**, e **matplotlib** per analisi e visualizzazione dei dati.
 
 ---
 
-## 1. Grafico dei Rapporti di Fibonacci
+## 1. Grafico della Successione di Fibonacci
 
-Scrivere una funzione che generi i primi `N` numeri della **sequenza di Fibonacci** e calcoli i rapporti tra termini consecutivi. Utilizzare **matplotlib** per rappresentare graficamente la convergenza di questi rapporti verso la **sezione aurea**.
+Scrivere una funzione che generi i primi `N` numeri della **successione di Fibonacci** e utilizzi **matplotlib** per rappresentarli graficamente.
+
+**Istruzioni**:  
+- L'asse x rappresenta l'indice dei termini.  
+- L'asse y rappresenta i valori della successione.  
+- Aggiungere un titolo e le etichette degli assi.  
 
 **Esempio di output**:  
-Un grafico a linee che mostra i rapporti e una linea orizzontale che rappresenta il valore 1.618.
+Un grafico a linee che mostra la crescita esponenziale dei termini della successione di Fibonacci.
 
 ---
 
 ## 2. Istogramma di Numeri Casuali
 
-Generare 1000 numeri casuali da una distribuzione uniforme tra 0 e 1 e rappresentarli con un **istogramma** utilizzando **matplotlib**.
+Generare 1000 numeri casuali da una distribuzione uniforme tra 0 e 1 e rappresentarli con un **istogramma**. Successivamente:  
+- Ripetere il grafico per una distribuzione normale con media 0 e deviazione standard 1.  
+- Aggiungere la curva teorica della distribuzione sovrapposta all'istogramma.  
 
-**Istruzioni**:
-- Personalizzare il grafico con titolo, etichette e griglia.
-- Utilizzare il modulo `random` per generare i numeri.
+**Istruzioni**:  
+- Utilizzare **numpy** per generare i numeri casuali.  
+- Personalizzare i grafici con titoli, etichette e griglie.  
 
 **Esempio di output**:  
-Un istogramma che mostra la distribuzione dei numeri casuali.
+Due istogrammi con frequenze relative e curve teoriche delle distribuzioni.
 
 ---
 
-## 3. Grafico del Pendolo Semplice
+## 3. Relazione Lunghezza-Periodo del Pendolo
 
-Riprendere il problema del **pendolo semplice** e graficare la relazione tra la lunghezza del pendolo e il periodo.
+Riprendere il problema del **pendolo semplice** e graficare la relazione tra la lunghezza del pendolo $L$ e il periodo $T$. Utilizzare i dati forniti in un file `data.csv`.  
 
-**Istruzioni**:
-- Calcolare i periodi per diverse lunghezze.
-- Usare **matplotlib** per rappresentare graficamente la relazione lunghezza-periodo.
-
-**Esempio di output**:  
-Un grafico che mostra una curva crescente con lunghezze sull’asse x e periodi sull’asse y.
-
----
-
-## 4. Random Walk
-
-Scrivere un programma che utilizzi **py5** per creare uno sketch grafico interattivo che simuli un **random walk** in due dimensioni.
-
-**Descrizione**:
-- Ad ogni frame, la posizione del punto cambia casualmente.
-- Aggiungere un’opzione per resettare il disegno con un clic del mouse.
+**Istruzioni**:  
+1. Utilizzare **pandas** per leggere i dati dal file.  
+2. Calcolare i valori medi e le incertezze su $T$ per ogni lunghezza $L$.  
+3. Calcolare $g$ e $\Delta g$ e salvarli in un nuovo file `processed_data.csv`.  
+4. Utilizzare **matplotlib** per rappresentare graficamente la relazione $L$-$T$ e sovrapporre la curva teorica del periodo.
+5. Calcolare la media dei valori $g_i$ e l'incertezza associata. Valutare la riuscita o meno dell'esperimento.
 
 **Esempio di output**:  
-Uno sketch grafico in cui un punto traccia un percorso casuale.
-
----
-
-## 5. Particella Rimbalzante
-
-Creare uno sketch con **py5** che rappresenti una particella che si muove all’interno di un box, rimbalzando quando colpisce i bordi.
-
-**Istruzioni**:
-- Implementare il movimento di una particella.
-- Aggiungere il rimbalzo ai lati del box.
-  
-**Estensioni opzionali**:
-- Applicare una forza di **gravità** per modificare il movimento.
-- Implementare più particelle che si muovono e rimbalzano simultaneamente.
-
-**Esempio di output**:  
-Uno sketch in cui una o più particelle si muovono e rimbalzano in modo dinamico.
+Un grafico con barre di errore per i dati sperimentali e una curva teorica sovrapposta.  

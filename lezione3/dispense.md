@@ -1,11 +1,14 @@
-# Lezione 3: Introduzione a Jupyter Notebook, matplotlib e py5
+# Lezione 3: Introduzione a Jupyter Notebook, numpy, pandas e matplotlib
 
 ## Obiettivi della lezione
 
-In questa lezione esploreremo:
-- L'uso di **Jupyter Notebook** come ambiente interattivo integrato in **VSCode**.
-- La libreria **matplotlib** per la creazione di grafici e la visualizzazione dei dati.
-- Un'introduzione a **py5** per la generazione di grafica interattiva.
+In questa lezione esploreremo:  
+- L'uso di **Jupyter Notebook** come ambiente interattivo integrato in **VSCode**.  
+- La libreria **numpy** per operazioni matematiche e gestione di array.  
+- La libreria **pandas** per la gestione di dati tabellari.  
+- La libreria **matplotlib** per la creazione di grafici e la visualizzazione dei dati.  
+
+---
 
 ## 1. Jupyter Notebook
 
@@ -13,24 +16,79 @@ In questa lezione esploreremo:
 
 ### 1.1 Avviare un Notebook in VSCode
 
-In **GitHub Codespaces**, non è necessario lanciare Jupyter Notebook manualmente. **VSCode** fornisce un'integrazione diretta:
-1. Aprire un file `.ipynb` direttamente in VSCode.
-2. L'interfaccia di editing e le celle saranno pronte per l'uso.
+In **GitHub Codespaces**, non è necessario lanciare Jupyter Notebook manualmente. **VSCode** fornisce un'integrazione diretta:  
+1. Aprire un file `.ipynb` direttamente in VSCode.  
+2. L'interfaccia di editing e le celle saranno pronte per l'uso.  
 
 ### 1.2 Celle di codice e markdown
 
-- **Cella di codice**: per scrivere ed eseguire codice Python.
-- **Cella di testo**: per inserire note, spiegazioni e istruzioni usando il formato **Markdown**.
+- **Cella di codice**: per scrivere ed eseguire codice Python.  
+- **Cella di testo**: per inserire note, spiegazioni e istruzioni usando il formato **Markdown**.  
 
 ---
 
-## 2. matplotlib: Visualizzare dati con grafici
+## 2. numpy: Operazioni matematiche e array
+
+La libreria **numpy** è fondamentale per il calcolo scientifico in Python.
+
+### 2.1 Creare e manipolare array
+
+Esempio di creazione e operazioni base con array:
+
+```python
+import numpy as np
+
+# Creare un array
+a = np.array([1, 2, 3, 4, 5])
+
+# Operazioni matematiche
+print(a * 2)  # Moltiplicazione elemento per elemento
+print(a + 3)  # Somma elemento per elemento
+print(np.sqrt(a))  # Radice quadrata elemento per elemento
+```
+
+---
+
+## 3. pandas: Gestione di dati e tabelle
+
+La libreria **pandas** consente di lavorare facilmente con dati strutturati come tabelle.
+
+### 3.1 Lettura e scrittura di file CSV
+
+Esempio di lettura di un file CSV:
+
+```python
+import pandas as pd
+
+# Leggere un file CSV
+df = pd.read_csv('data.csv')
+print(df.head())
+
+# Operazioni sui dati
+print(df['colonna'].mean())  # Calcolo della media di una colonna
+```
+
+### 3.2 Modifica e salvataggio dei dati
+
+Esempio di modifica e salvataggio:
+
+```python
+# Creare una nuova colonna
+df['nuova_colonna'] = df['colonna'] * 2
+
+# Salvare il file modificato
+df.to_csv('processed_data.csv', index=False)
+```
+
+---
+
+## 4. matplotlib: Visualizzare dati con grafici
 
 La libreria **matplotlib** è uno strumento fondamentale per creare grafici di alta qualità in Python.
 
-### 2.1 Installazione e primo grafico
+### 4.1 Creare un grafico semplice
 
-matplotlib è preinstallato in Codespaces. Per verificarne l'uso, ecco un esempio base di grafico:
+Esempio di grafico lineare:
 
 ```python
 import matplotlib.pyplot as plt
@@ -46,49 +104,24 @@ plt.grid(True)
 plt.show()
 ```
 
-### 2.2 Compito: Personalizzare i grafici
+### 4.2 Istogrammi
 
-Esplorare diverse personalizzazioni:
-- Modificare colori e stili di linea.
-- Aggiungere legende e annotazioni.
-- Creare istogrammi o grafici a barre.
-
----
-
-## 3. py5: Introduzione alla grafica interattiva
-
-**py5** consente di creare sketch grafici dinamici e interattivi, ispirati al framework Processing.
-
-### 3.1 Installazione
-
-Per installare py5:
-```bash
-pip install py5
-```
-
-### 3.2 Primo Sketch: Disegno Statico
-
-Ecco un esempio per tracciare semplici cerchi in una finestra:
+Esempio di creazione di un istogramma:
 
 ```python
-import py5
+import numpy as np
 
-def setup():
-    py5.size(500, 500)
-    py5.background(200)
+data = np.random.randn(1000)  # Generare dati casuali
 
-def draw():
-    py5.fill(100, 200, 150)
-    py5.circle(py5.mouse_x, py5.mouse_y, 20)
+plt.hist(data, bins=20, edgecolor='black', color='skyblue')
+plt.title("Istogramma")
+plt.xlabel("Valori")
+plt.ylabel("Frequenza")
+plt.show()
 ```
-
-### 3.3 Compito: Esplorare sketch dinamici
-
-- Modificare lo sketch per cambiare colori e forme in base alla posizione del mouse o al tempo.
-- Utilizzare il metodo `py5.random()` per introdurre variabilità.
 
 ---
 
 ## Conclusione
 
-Questa lezione ha introdotto strumenti potenti per scrivere codice interattivo e visualizzare dati. Approfondite **matplotlib** e **py5** per ampliare le vostre competenze nella visualizzazione e nel creative coding.
+Questa lezione ha introdotto strumenti fondamentali per l'analisi e la visualizzazione dei dati: **Jupyter Notebook**, **numpy**, **pandas**, e **matplotlib**. Approfondite questi strumenti per sviluppare competenze essenziali nell'analisi dei dati e nella programmazione scientifica.  

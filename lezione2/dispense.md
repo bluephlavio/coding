@@ -1,11 +1,11 @@
-# Lezione 2: Modularità, Funzioni e Moduli in Python
+# Lezione 2: Modularità, Funzioni e Classi in Python
 
 ## Obiettivi della lezione
 
-La **modularità** è un principio chiave per scrivere codice leggibile, riutilizzabile e manutenibile. In questa lezione approfondiremo:
-- Le **funzioni**, per suddividere il codice in blocchi logici e riutilizzabili.
-- Le **classi**, per strutturare dati e comportamento.
-- L'uso di **moduli** e **pacchetti**, con un'introduzione alla gestione dei pacchetti tramite **pip**.
+La **modularità** è un principio chiave per scrivere codice leggibile, riutilizzabile e manutenibile. In questa lezione approfondiremo:  
+- Le **funzioni**, per suddividere il codice in blocchi logici e riutilizzabili.  
+- Le **classi**, per strutturare dati e comportamento.  
+- L'uso di **moduli** e **pacchetti**.  
 
 ---
 
@@ -56,7 +56,7 @@ print(f"Rectangle area: {rect.area()}")
 
 ---
 
-## 3. Moduli e Pacchetti
+## 3. Moduli e Libreria Standard
 
 ### Moduli locali
 
@@ -93,31 +93,12 @@ import math
 print(math.sqrt(16))  # Output: 4.0
 ```
 
-### Pacchetti di terze parti e gestione con `pip`
-
-**pip** è il gestore ufficiale dei pacchetti Python, usato per installare librerie esterne.
-
-Per installare un pacchetto come **pandas**:
-
-```bash
-pip install pandas
-```
-
-**Esempio con `pandas`:**
-
-```python
-import pandas as pd
-df = pd.read_csv('data.csv')
-print(df.head())
-```
-
 ---
 
 ## Conclusioni
 
 Abbiamo introdotto:
-- L'importanza della **modularità** con funzioni e classi.
-- L'uso di **moduli locali**, della **libreria standard** e di **pacchetti di terze parti**.
-- La gestione dei pacchetti con **pip**.
+- L'importanza della **modularità** con funzioni e classi.  
+- L'uso di **moduli locali** e della **libreria standard**.  
 
 Questi strumenti sono essenziali per scrivere codice scalabile e manutenibile.
