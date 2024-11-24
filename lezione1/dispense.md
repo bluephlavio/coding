@@ -189,3 +189,4 @@ student["grade"] = "A"
 ## **Conclusione**  
 
 Abbiamo introdotto i concetti fondamentali della programmazione con Python: variabili, input/output, condizionali, cicli, liste e dizionari. Questi elementi costituiscono le basi per scrivere programmi complessi.
+

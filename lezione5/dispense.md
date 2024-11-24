@@ -120,3 +120,4 @@ anim.start()
 
 Questa lezione ha introdotto i concetti necessari per simulare sistemi di particelle, passando da animazioni semplici a simulazioni fisiche più complesse. Nelle esercitazioni, metteremo in pratica questi concetti per creare un gas di particelle e un sistema gravitazionale interattivo.  
 ```
+

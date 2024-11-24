@@ -138,3 +138,4 @@ Questi dati possono poi essere analizzati utilizzando librerie come **matplotlib
 ## Conclusione  
 
 In questa lezione abbiamo imparato a utilizzare ipycanvas per creare animazioni e interazioni grafiche in un notebook Jupyter. Queste basi saranno fondamentali per sviluppare simulazioni più complesse nelle lezioni successive.
+

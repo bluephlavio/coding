@@ -1,74 +1,63 @@
-# Corso di Coding con Python
+# **Corso di Programmazione in Python**
 
-Benvenuti al repository del corso di **Coding con Python**!  
-Questo repository contiene tutto il materiale necessario per seguire il corso e completare gli esercizi.
+## **Descrizione del Progetto**
+Questo repository contiene tutto il materiale necessario per seguire il corso introduttivo di programmazione in Python progettato per studenti delle scuole superiori. Il corso guida i partecipanti attraverso i fondamenti della programmazione fino alla creazione di simulazioni avanzate, utilizzando Python e strumenti moderni come Jupyter Notebook e ipycanvas.
 
-## Struttura del Repository
+## **Struttura del Repository**
+La struttura del repository è organizzata per garantire un facile accesso ai contenuti e un apprendimento progressivo:
 
-Il repository è organizzato come segue:
-
-- **Cartelle di lezione**:  
-  Ogni lezione ha una propria cartella (`lezioneX/`) che contiene:
-  - Un file `README.md` con le istruzioni e gli obiettivi della lezione.
-  - File vuoti o con intestazioni per gli esercizi da completare.
-
-- **Branch separato per le soluzioni**:  
-  Esiste un branch chiamato `soluzioni` con le soluzioni degli esercizi. Cerca di consultarlo raramente! :)
-
-## Come iniziare
-
-### Passo 1: Crea un account GitHub
-Se non hai già un account GitHub, segui questi passaggi:
-1. Vai su [github.com](https://github.com).
-2. Clicca su **Sign up** in alto a destra.
-3. Completa la registrazione seguendo le istruzioni.
-
-### Passo 2: Fai un fork del repository
-Il fork crea una tua copia personale del repository, dove potrai lavorare liberamente.  
-1. Dopo aver effettuato l'accesso a GitHub, vai al repository del corso.
-2. Clicca sul pulsante **Fork** in alto a destra.
-3. Verrà creata una copia del repository sul tuo account.
-
-### Passo 3: Apri il repository con Codespaces
-1. Vai al tuo repository forkato.
-2. Clicca sul pulsante **Code** (il bottone verde).
-3. Seleziona la scheda **Codespaces**.
-4. Clicca su **Create codespace on main**.  
-   Questo aprirà un ambiente di sviluppo già configurato, direttamente nel browser.
-
-### Passo 4: Completa gli esercizi
-1. Apri la cartella della lezione corrente.
-2. Leggi il file `README.md` nella cartella della lezione per le istruzioni.
-3. Scrivi il tuo codice negli appositi file vuoti o semi-vuoti.
-
-## Workflow consigliato
-
-- **Scrivi e salva il tuo codice** direttamente su Codespaces.
-- **Committa frequentemente** i tuoi progressi per salvarli nel tuo repository:
-  1. Nel terminale di Codespaces, digita:
-     ```bash
-     git add .
-     git commit -m "Descrizione dei tuoi cambiamenti"
-     git push
-     ```
-- **Apri una Pull Request (PR)**:
-  1. Torna al tuo repository su GitHub.
-  2. Clicca su **Pull requests**.
-  3. Clicca su **New pull request** e segui le istruzioni per inviare il tuo lavoro per il feedback.
-
-## Documentazione aggiuntiva
-
-Per ulteriori dettagli e spiegazioni:
-
-- [**Come usare questo repository**](HOW_TO_USE_THIS_REPO.md)  
-  Una guida pratica per organizzare il tuo lavoro.
-
-- [**Git e GitHub - Mini Tutorial**](GIT_AND_GITHUB_TUTORIAL.md)  
-  Un riassunto essenziale dei comandi di Git e GitHub.
-
-- [**Programma del corso**](MASTERPLAN.md)
-  Il programma del corso.
+- **`README.md`**: Questo file, contenente una panoramica del repository e istruzioni per iniziare.  
+- **`PIANO_DEL_CORSO.md`**: Il piano dettagliato del corso, con gli obiettivi, i contenuti di ogni lezione e l’elenco degli esercizi.  
+- **`GIT_AND_GITHUB_TUTORIAL.md`**: Una guida introduttiva a Git e GitHub, per aiutare gli studenti a configurare e utilizzare il repository durante il corso.  
+- **`risorse/`**: Cartella contenente file condivisi tra più lezioni, come dataset o moduli Python riutilizzabili.  
 
 ---
 
-Buon lavoro e buon coding! 🚀
+## **Come Utilizzare Questo Repository**
+
+### **1. Configurazione dell'Ambiente di Sviluppo**
+Per iniziare, utilizzeremo **GitHub Codespaces**, un ambiente di sviluppo preconfigurato. Segui questi passaggi:
+1. Forka questo repository sul tuo account GitHub.
+2. Vai alla scheda **Codespaces** nel tuo repository forkato.
+3. Crea un nuovo Codespace per iniziare a lavorare sul materiale del corso.
+
+Alternativamente, puoi clonare il repository sul tuo computer locale ed eseguire il codice con Python 3.x installato.
+
+### **2. Navigazione dei File**
+- **Lezioni**: Ogni lezione ha una propria cartella (`lezione1/`, `lezione2/`, ecc.), contenente esercizi, notebook e file Python relativi.  
+- **Risorse condivise**: I file comuni tra più lezioni si trovano nella cartella **`risorse/`**, come:
+  - **`risorse/data.csv`**: Dataset utilizzato negli esercizi di analisi dei dati (lezione 3 e successive).  
+  - **`risorse/animation.py`**: Modulo Python per gestire le animazioni, utilizzato nelle lezioni 4 e 5.
+
+### **3. Accesso alle Risorse**
+Per utilizzare i file nella cartella `risorse/`, puoi specificare un percorso relativo nei tuoi script o notebook. Ad esempio:
+- Per accedere a `data.csv`:
+  ```python
+  import os
+  import pandas as pd
+
+  data_path = os.path.join('..', 'risorse', 'data.csv')
+  data = pd.read_csv(data_path)
+  ```
+- Per importare `animation.py`:
+  ```python
+  import sys
+  sys.path.append('../risorse')
+  from animation import Animation
+  ```
+
+### **4. Esecuzione del Codice**
+Puoi eseguire i file Python direttamente nell’ambiente Codespaces o nel tuo interprete Python locale. Per i notebook Jupyter:
+1. Apri un file `.ipynb` in Codespaces o in VSCode con l'estensione appropriata.
+2. Esegui le celle interattive per esplorare esempi e soluzioni.
+
+### **5. Esercizi e Progetti**
+- Gli esercizi per ogni lezione si trovano nelle rispettive sottocartelle (`lezioneX/`) e sono descritti in dettaglio nel file **PIANO_DEL_CORSO.md**.
+- Gli studenti sono incoraggiati a completare gli esercizi in autonomia, utilizzando i notebook forniti per verificare il proprio lavoro.
+- La lezione 5 include un progetto finale che integra le competenze acquisite durante il corso.
+
+---
+
+### **Domande?**
+Se hai dubbi o difficoltà, non esitare a chiedere aiuto durante le lezioni o a consultare i file **PIANO_DEL_CORSO.md** e **GIT_AND_GITHUB_TUTORIAL.md**.  
+Buon lavoro! 🚀  

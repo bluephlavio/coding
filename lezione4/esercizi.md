@@ -38,4 +38,5 @@ Creare un'animazione in cui una particella esegue un **random walk**:
 
 **Estensione opzionale**:  
 - Calcolare le distanze dall'origine per ogni posizione della particella e salvarle in un file CSV.  
-- Analizzare i dati generati utilizzando **matplotlib**, visualizzando un grafico della distanza in funzione del tempo.  
+- Analizzare i dati generati utilizzando **matplotlib**, visualizzando un grafico della distanza in funzione del tempo.
+

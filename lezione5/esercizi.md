@@ -51,3 +51,4 @@ $$
 ## Consegna  
 
 Per ciascun esercizio, implementare la soluzione in un notebook separato o in file Python, seguendo le specifiche indicate.  
+

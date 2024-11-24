@@ -46,3 +46,4 @@ Riprendere il problema del **pendolo semplice** e graficare la relazione tra la 
 
 **Esempio di output**:  
 Un grafico con barre di errore per i dati sperimentali e una curva teorica sovrapposta.  
+

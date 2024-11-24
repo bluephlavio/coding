@@ -70,3 +70,4 @@ Scrivere un programma che utilizzi il **metodo Monte Carlo** per stimare il valo
 Inserisci il numero di punti da simulare: 10000
 Valore stimato di π: 3.1412
 ```
+

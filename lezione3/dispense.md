@@ -124,4 +124,5 @@ plt.show()
 
 ## Conclusione
 
-Questa lezione ha introdotto strumenti fondamentali per l'analisi e la visualizzazione dei dati: **Jupyter Notebook**, **numpy**, **pandas**, e **matplotlib**. Approfondite questi strumenti per sviluppare competenze essenziali nell'analisi dei dati e nella programmazione scientifica.  
+Questa lezione ha introdotto strumenti fondamentali per l'analisi e la visualizzazione dei dati: **Jupyter Notebook**, **numpy**, **pandas**, e **matplotlib**. Approfondite questi strumenti per sviluppare competenze essenziali nell'analisi dei dati e nella programmazione scientifica.
+

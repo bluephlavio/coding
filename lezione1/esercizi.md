@@ -73,3 +73,4 @@ Scrivere un programma che chieda all'utente un numero intero positivo `N` e stam
 Inserisci un numero: 10  
 I numeri primi da 1 a 10 sono: [2, 3, 5, 7]
 ```
+
