@@ -51,7 +51,7 @@
 
 ---
 
-## **Lezione 4: Animazioni grafiche con ipycanvas**
+## **Lezione 4: Animazioni grafiche con ipycanvas: moto di una singola particella**
 ### Obiettivi:
 - **Introduzione a ipycanvas**: una libreria per creare grafica interattiva in Jupyter Notebook.
 - **Struttura di un’animazione**:
@@ -70,7 +70,7 @@
 
 ---
 
-## **Lezione 5: Librerie personalizzate e simulazioni complesse**
+## **Lezione 5: Animazioni grafiche con ipycanvas: sistemi di molte particelle**
 ### Obiettivi:
 - **Progettazione di una libreria Python**: creazione di classi e funzioni per simulazioni complesse.
 - **Simulazione a n-corpi**:
