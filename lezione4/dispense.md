@@ -1,139 +1,140 @@
-# Lezione 4: Introduzione a py5  
+# Lezione 4: Introduzione a ipycanvas  
 
 ## Obiettivi della lezione  
 
-In questa lezione esploreremo **py5**, una libreria Python ispirata al framework **Processing**, ideale per creare sketch grafici interattivi e dinamici. Impareremo i concetti fondamentali per lavorare con py5 e costruiremo animazioni e simulazioni visive.  
+In questa lezione esploreremo **ipycanvas**, una libreria Python progettata per creare animazioni e grafica interattiva all'interno di un notebook Jupyter. L'obiettivo principale sarà imparare a simulare e animare il movimento di una particella nel canvas, utilizzando concetti fondamentali come il disegno, la gestione degli eventi e l'aggiornamento continuo dello stato.  
 
-Gli obiettivi principali della lezione sono:  
-- Capire la struttura di base di uno sketch py5: **setup**, **draw** e **settings**.  
-- Conoscere le funzioni principali per disegnare e muovere oggetti nel canvas.  
-- Comprendere come manipolare variabili per creare movimento e interattività.  
+### Argomenti principali:  
+- Introduzione a ipycanvas: configurazione e utilizzo di base.  
+- Creare animazioni utilizzando cicli di aggiornamento continui.  
+- Gestire il movimento della particella: libero, controllato, casuale.  
+- Salvare dati generati dalle simulazioni e analizzarli.  
 
 ---
 
-## 1. Struttura di Base di uno Sketch py5  
+## 1. Introduzione a ipycanvas  
 
-Un programma py5 è composto da tre funzioni principali:  
+**ipycanvas** è una libreria Python che permette di creare grafica 2D direttamente in un notebook Jupyter. Il componente principale è il canvas, su cui possiamo disegnare forme e aggiornare il contenuto dinamicamente.  
 
-1. **`settings()`** *(opzionale)*: utilizzata per configurare le proprietà avanzate del canvas. Deve essere definita se si desidera usare funzioni come `py5.size()` per impostare le dimensioni del canvas.  
-2. **`setup()`**: viene eseguita una volta all’inizio del programma. Si usa per configurare l’ambiente, ad esempio impostando il colore di sfondo o inizializzando le variabili.  
-3. **`draw()`**: viene eseguita in un ciclo continuo per creare animazioni o aggiornare lo stato dello sketch.  
+### 1.1 Creazione di un Canvas  
 
-Esempio base:  
+Per iniziare, è necessario importare la libreria e creare un canvas:  
 
 ```python
-import py5
+from ipycanvas import Canvas
 
-def settings():
-    py5.size(800, 600)  # Imposta le dimensioni del canvas
-
-def setup():
-    py5.background(200)  # Colore di sfondo (grigio chiaro)
-
-def draw():
-    py5.fill(255, 0, 0)  # Colore di riempimento (rosso)
-    py5.circle(py5.mouse_x, py5.mouse_y, 50)  # Disegna un cerchio che segue il mouse
-
-py5.run_sketch()
-```
+# Creazione di un canvas 400x400
+canvas = Canvas(width=400, height=400)
+canvas
+```  
 
 ---
 
-## 2. Disegnare con py5  
+## 2. Disegnare nel Canvas  
 
-py5 offre una varietà di funzioni per disegnare forme geometriche sul canvas.  
+ipycanvas fornisce una serie di metodi per disegnare forme geometriche, impostare colori e gestire il contesto grafico.  
 
 ### 2.1 Forme Base  
 
-- **Cerchi e ellissi**:  
+- **Cerchi**:  
   ```python
-  py5.circle(x, y, diameter)
-  py5.ellipse(x, y, width, height)
+  canvas.fill_circle(x, y, radius)
   ```  
 
-- **Rettangoli e linee**:  
+- **Rettangoli**:  
   ```python
-  py5.rect(x, y, width, height)
-  py5.line(x1, y1, x2, y2)
+  canvas.fill_rect(x, y, width, height)
   ```  
 
-- **Punti e poligoni**:  
+- **Linee**:  
   ```python
-  py5.point(x, y)
-  py5.begin_shape()
-  py5.vertex(x1, y1)
-  py5.vertex(x2, y2)
-  py5.end_shape()
+  canvas.stroke_line(x1, y1, x2, y2)
   ```  
 
-### 2.2 Colori e Stili  
+### 2.2 Colori  
 
-- **Riempimento e contorni**:  
+- Impostare il colore di riempimento:  
   ```python
-  py5.fill(r, g, b)  # Colore di riempimento
-  py5.stroke(r, g, b)  # Colore del contorno
-  py5.no_fill()  # Nessun riempimento
-  py5.no_stroke()  # Nessun contorno
+  canvas.fill_style = "red"
   ```  
 
-- **Sfondo**:  
+- Impostare il colore delle linee:  
   ```python
-  py5.background(r, g, b)  # Imposta il colore di sfondo
-  ```
+  canvas.stroke_style = "blue"
+  ```  
+
+### 2.3 Pulire il Canvas  
+
+Per pulire il canvas, si utilizza:  
+```python
+canvas.clear()
+```  
 
 ---
 
-## 3. Movimento e Interattività  
+## 3. Creare Animazioni  
 
-### 3.1 Gestire il Movimento  
+Per creare animazioni, è necessario aggiornare continuamente lo stato del canvas. Questo si ottiene combinando:  
+1. **Un loop di aggiornamento**, che disegna e aggiorna la scena ad ogni frame.  
+2. **Il metodo `hold_canvas()`**, per migliorare le performance durante gli aggiornamenti.  
 
-Per creare movimento in py5, si aggiornano le coordinate degli oggetti in modo continuo nella funzione `draw()`.  
-
-Esempio:  
-
+Esempio base:  
 ```python
-x, y = 100, 100  # Posizione iniziale
-velocity_x, velocity_y = 2, 3  # Velocità iniziale
+from ipycanvas import hold_canvas
 
-def draw():
-    global x, y
-    x += velocity_x  # Aggiorna la posizione
-    y += velocity_y
-    py5.circle(x, y, 20)  # Disegna il cerchio in movimento
-```
-
-### 3.2 Gestire i Rimbalzi  
-
-Quando un oggetto tocca il bordo del canvas, è necessario invertire la direzione della velocità:  
-
-```python
-if x <= 0 or x >= py5.width:
-    velocity_x *= -1
-if y <= 0 or y >= py5.height:
-    velocity_y *= -1
-```
+# Disegna e aggiorna in un ciclo
+def update():
+    with hold_canvas(canvas):
+        canvas.clear()
+        canvas.fill_circle(200, 200, 50)
+```  
 
 ---
 
-## 4. Salvare i Dati  
+## 4. Interazione con la Tastiera  
 
-py5 permette di salvare dati generati durante lo sketch, ad esempio posizioni o velocità, in un file.  
+ipycanvas permette di gestire eventi di tastiera e mouse.  
 
-Esempio di salvataggio dati:  
+### 4.1 Eventi di Tastiera  
+
+È possibile catturare eventi di tastiera e utilizzare i tasti per controllare gli oggetti:  
+```python
+@canvas.on_key_down
+def handle_key(event):
+    print(f"Tasto premuto: {event.key}")
+```  
+
+### 4.2 Eventi del Mouse  
+
+Analogamente, si possono catturare eventi del mouse:  
+```python
+@canvas.on_mouse_down
+def handle_mouse(event):
+    print(f"Clic su: {event.x}, {event.y}")
+```  
+
+---
+
+## 5. Salvare e Analizzare Dati  
+
+Un aspetto importante delle simulazioni è la possibilità di salvare dati per analisi successive. Ad esempio, si possono registrare le posizioni di una particella e salvarle in un file CSV:  
 
 ```python
-positions = []  # Lista per salvare le posizioni
+import csv
 
-def draw():
-    global positions
-    positions.append(f"{x},{y}")  # Salva la posizione
-    if len(positions) >= 100:  # Dopo 100 frame
-        py5.save_strings("positions.csv", positions)  # Salva su file
-        py5.no_loop()  # Ferma lo sketch
-```
+positions = [(100, 100), (110, 105), (120, 110)]  # Esempio di dati
+
+# Salva le posizioni in un file CSV
+with open("positions.csv", mode="w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["x", "y"])
+    writer.writerows(positions)
+```  
+
+Questi dati possono poi essere analizzati utilizzando librerie come **matplotlib**.  
 
 ---
 
 ## Conclusione  
 
-In questa lezione abbiamo visto le basi di py5, dalla struttura di uno sketch alle funzioni principali per disegnare e creare movimento. Questi strumenti saranno essenziali per sviluppare simulazioni dinamiche e rappresentazioni creative.  
+In questa lezione abbiamo imparato a utilizzare ipycanvas per creare animazioni e interazioni grafiche in un notebook Jupyter. Queste basi saranno fondamentali per sviluppare simulazioni più complesse nelle lezioni successive.
