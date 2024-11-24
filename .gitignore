@@ -1,0 +1,65 @@
+# Ambiente Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+*.whl
+
+# Configurazione di ambienti virtuali
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# File Jupyter Notebook di backup
+**/.ipynb_checkpoints/
+
+# Configurazioni di editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Log e file temporanei
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# File generati da sistemi operativi
+.DS_Store
+*.stackdump
+
+# Output di compilazione
+build/
+dist/
+*.o
+*.out
+*.class
+*.a
+
+# File di dati temporanei o intermedi
+**/*.csv~
+**/*.json~
+**/*.db
+
+# Cache delle librerie Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Output di Matplotlib
+**/*.png
+**/*.svg
+
+# Output degli script
+**/out/
+
+# Scripts
+scripts/
+lessons.md
